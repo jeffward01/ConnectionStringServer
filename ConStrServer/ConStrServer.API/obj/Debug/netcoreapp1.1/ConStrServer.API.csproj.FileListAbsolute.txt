@@ -1,0 +1,9 @@
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\bin\Debug\netcoreapp1.1\ConStrServer.API.deps.json
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\bin\Debug\netcoreapp1.1\ConStrServer.API.runtimeconfig.json
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\bin\Debug\netcoreapp1.1\ConStrServer.API.runtimeconfig.dev.json
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\bin\Debug\netcoreapp1.1\ConStrServer.API.dll
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\bin\Debug\netcoreapp1.1\ConStrServer.API.pdb
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\obj\Debug\netcoreapp1.1\ConStrServer.API.csprojResolveAssemblyReference.cache
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\obj\Debug\netcoreapp1.1\ConStrServer.API.AssemblyInfo.cs
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\obj\Debug\netcoreapp1.1\ConStrServer.API.dll
+C:\Dev\projects\ConnectionStringApp\ConStrServer\ConStrServer.API\obj\Debug\netcoreapp1.1\ConStrServer.API.pdb
