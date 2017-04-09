@@ -64,6 +64,10 @@
     <Content Include="bower_components\gulp\.bower.json" />
     <Content Include="bower_components\gulp\package.json" />
     <Content Include="bower_components\gulp\test\fixtures\copy\example.txt" />
+    <Content Include="bower_components\isteven-angular-multiselect\.bower.json" />
+    <Content Include="bower_components\isteven-angular-multiselect\bower.json" />
+    <Content Include="bower_components\isteven-angular-multiselect\isteven-multi-select.css" />
+    <Content Include="bower_components\isteven-angular-multiselect\LICENSE.txt" />
     <Content Include="bower_components\jquery\.bower.json" />
     <Content Include="bower_components\jquery\AUTHORS.txt" />
     <Content Include="bower_components\jquery\bower.json" />
@@ -432,6 +436,8 @@
     <None Include="bower_components\gulp\test\tasks.js" />
     <None Include="bower_components\gulp\test\taskTree.js" />
     <None Include="bower_components\gulp\test\watch.js" />
+    <None Include="bower_components\isteven-angular-multiselect\.npmignore" />
+    <None Include="bower_components\isteven-angular-multiselect\isteven-multi-select.js" />
     <None Include="bower_components\jquery\dist\core.js" />
     <None Include="bower_components\jquery\dist\jquery.js" />
     <None Include="bower_components\jquery\dist\jquery.min.js" />

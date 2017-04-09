@@ -27,6 +27,6 @@
     "angular-bootstrap-multiselect": "^0.5.1"
   },
   "devDependencies": {
-    "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.6"
+    "isteven-angular-multiselect": "^4.0.0"
   }
 }
