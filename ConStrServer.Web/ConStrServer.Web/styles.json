@@ -1,0 +1,8 @@
+﻿[
+  "./css/main.css",
+  "./bower_components/bootstrap/css/bootstrap.css",
+  "./bower_components/bootstrap/css/bootstrap-theme.css",
+  "./bower_components/angular-loading-bar/src/loading-bar.css",
+  "./bower_components/angular-ui/angular-ui.css",
+  "./bower_components/font-awesome/css/font-awesome.css"
+]

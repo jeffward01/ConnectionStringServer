@@ -1,0 +1,28 @@
+{
+  "name": "ConStrServer.Web",
+  "homepage": "https://github.com/jeffward01/ConnectionStringServer",
+  "authors": [
+    "jeffward01-umpg <jeff.ward@umusic.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-ui": "^0.4.0",
+    "angular-ui-router": "^0.4.2",
+    "angular-loading-bar": "^0.9.0",
+    "bootstrap": "^3.3.7",
+    "gulp": "^3.9.1",
+    "angular-local-storage": "^0.5.2",
+    "angular-sanitize": "^1.6.4",
+    "font-awesome": "^4.7.0"
+  }
+}
