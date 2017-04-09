@@ -23,6 +23,10 @@
     "gulp": "^3.9.1",
     "angular-local-storage": "^0.5.2",
     "angular-sanitize": "^1.6.4",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "angular-bootstrap-multiselect": "^0.5.1"
+  },
+  "devDependencies": {
+    "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.6"
   }
 }

@@ -1,4 +1,4 @@
-﻿var app = angular.module('ConStrApp', ['ui.router', 'LocalStorageModule', 'angular-loading-bar', 'ngSanitize']);
+﻿var app = angular.module('ConStrApp', ['ui.router', 'LocalStorageModule', 'angular-loading-bar', 'ngSanitize', 'btorfs.multiselect']);
 
 
 app.config(function ($stateProvider, $urlRouterProvider) {

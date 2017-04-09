@@ -7,6 +7,16 @@ app.controller('addProjectCtrl',
             $scope.goHome = function() {
                 stateManager.goHome();
             }
-
+            $scope.options =  [
+                "France",
+                "United Kingdom",
+                "Germany",
+                "Belgium",
+                "Netherlands",
+                "Spain",
+                "Italy",
+                "Poland",
+                "Austria"
+            ]
         }
     ]);
