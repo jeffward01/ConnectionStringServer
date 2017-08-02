@@ -9,7 +9,7 @@ using ConStrServer.Models.Dbo;
 
 namespace ConStrServer.Data.Repositories
 {
-    public class ProjectRepository
+    public class ProjectRepository : IProjectRepository
     {
         public Project Create(Project project)
         {

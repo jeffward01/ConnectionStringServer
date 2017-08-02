@@ -10,7 +10,7 @@ namespace ConStrServer.Models.Dbo
     {
         public int ConnectionStringId { get; set; }
 
-        public int? ProjectId { get; set; }
+        public int MachineId { get; set; }
 
         public string ConnectionStringName { get; set; }
 

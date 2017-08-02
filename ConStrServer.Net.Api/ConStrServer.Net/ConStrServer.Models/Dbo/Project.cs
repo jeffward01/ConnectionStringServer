@@ -11,8 +11,7 @@ namespace ConStrServer.Models.Dbo
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
         public string ProjectOwner { get; set; }
-        public int MachineId { get; set; }
+        public virtual List<EnvironmentInfo> Environments { get; set; }
 
-        public virtual List<ConnectionString> ConnectionStrings { get; set; }
     }
 }

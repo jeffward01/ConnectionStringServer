@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ConStrServer.Data.Repositories
 {
-    public class EnvironmentInfoRepository
+    public class EnvironmentInfoRepository : IEnvironmentInfoRepository
     {
         public EnvironmentInfo Create(EnvironmentInfo environmentInfo)
         {

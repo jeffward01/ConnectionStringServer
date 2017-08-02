@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ConStrServer.Data.Repositories
 {
-    public class ConnectionStringRepository
+    public class ConnectionStringRepository : IConnectionStringRepository
     {
         public ConnectionString Create(ConnectionString connectionString)
         {

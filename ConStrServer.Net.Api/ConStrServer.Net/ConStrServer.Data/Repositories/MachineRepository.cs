@@ -9,7 +9,7 @@ using ConStrServer.Models.Dbo;
 
 namespace ConStrServer.Data.Repositories
 {
-    public class MachineRepository
+    public class MachineRepository : IMachineRepository
     {
         public Machine Create(Machine Machine)
         {

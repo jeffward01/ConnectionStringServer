@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,14 @@
   <ItemGroup>
     <Compile Include="Infrastructure\ConStrContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConnectionStringRepository.cs" />
+    <Compile Include="Repositories\EnvironmentRepository.cs" />
+    <Compile Include="Repositories\IConnectionStringRepository.cs" />
+    <Compile Include="Repositories\IEnvironmentInfoRepository.cs" />
+    <Compile Include="Repositories\IMachineRepository.cs" />
+    <Compile Include="Repositories\IProjectRepository.cs" />
+    <Compile Include="Repositories\MachineRepository.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConStrServer.Models\ConStrServer.Models.csproj">

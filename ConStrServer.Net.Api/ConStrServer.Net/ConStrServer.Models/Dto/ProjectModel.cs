@@ -19,7 +19,12 @@ namespace ConStrServer.Models.Dto
         [DataMember(Name = "MachineId")]
         public int MachineId { get; set; }
 
-        [DataMember(Name = "ConnectionStrings")]
-        public virtual List<ConnectionStringModel> ConnectionStrings { get; set; }
     }
 }
+
+
+
+//Projects
+////Env
+/// //Maichines
+/// ////ConnectionStrings
