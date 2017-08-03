@@ -10,6 +10,5 @@ namespace ConStrServer.Data.Repositories
         Project Delete(int projectId);
         List<Project> GetAll();
         Project GetByProjectId(int projectId);
-        List<Project> GetAllProjectsByMachineId(int machineid);
     }
 }

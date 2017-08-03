@@ -11,7 +11,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http.Cors;
 
-namespace ConStrServer.Net.API.App_Start
+namespace ConStrServer.Net.API
 {
     public static class WebApiConfig
     {
@@ -32,7 +32,7 @@ namespace ConStrServer.Net.API.App_Start
 
 
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional });
+                defaults: new { id = System.Web.Http.RouteParameter.Optional });
             ConfigureJson(config);
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 

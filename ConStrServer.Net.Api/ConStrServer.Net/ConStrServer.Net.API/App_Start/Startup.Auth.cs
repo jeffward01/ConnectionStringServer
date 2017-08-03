@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ConStrServer.Data.Repositories;
+using ConStrServer.Models.AccountModels;
+using ConStrServer.Net.API.Providers;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.OAuth;
+using Owin;
 
-namespace ConStrServer.Net.API.App_Start
+namespace ConStrServer.Net.API
 {
     public partial class Startup
     {

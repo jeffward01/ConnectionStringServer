@@ -56,12 +56,6 @@ namespace ConStrServer.Data.Repositories
             }
         }
 
-        public List<Project> GetAllProjectsByMachineId(int machineid)
-        {
-            using (var context = new ConStrContext())
-            {
-                return context.Projects.Include("ConnectionStrings").Where(_ => _.MachineId == machineid).ToList(); 
-            }
-        }
+       
     }
 }

@@ -1,0 +1,14 @@
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\ConStrServer.Models.dll.config
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\ConStrServer.Models.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\ConStrServer.Models.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\EntityFramework.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\EntityFramework.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\obj\Debug\ConStrServer.Models.csprojResolveAssemblyReference.cache
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\obj\Debug\ConStrServer.Models.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Models\obj\Debug\ConStrServer.Models.pdb

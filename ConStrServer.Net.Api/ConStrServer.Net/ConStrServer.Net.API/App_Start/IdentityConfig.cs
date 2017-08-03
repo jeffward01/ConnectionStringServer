@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ConStrServer.Models.AccountModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
 
-namespace ConStrServer.Net.API.App_Start
+namespace ConStrServer.Net.API
 {
     public class IdentityConfig
     {

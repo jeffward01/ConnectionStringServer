@@ -8,7 +8,7 @@ namespace ConStrServer.Data.Repositories
         ConnectionString Create(ConnectionString connectionString);
         ConnectionString Edit(ConnectionString connectionString);
         ConnectionString Delete(int connectionStringId);
-        List<ConnectionString> GetAllConnectionStringsForProjectId(int projectId);
+        List<ConnectionString> GetAllConnectionStringsForMachineId(int machineId);
         List<ConnectionString> GetAll();
         ConnectionString GetByConnectionStringId(int connectionStringId);
     }

@@ -42,6 +42,10 @@
   <ItemGroup>
     <Compile Include="Managers\ConnectionStringManger.cs" />
     <Compile Include="Managers\EnvironmentManager.cs" />
+    <Compile Include="Managers\IConnectionStringManger.cs" />
+    <Compile Include="Managers\IEnvironmentManager.cs" />
+    <Compile Include="Managers\IMachineManager.cs" />
+    <Compile Include="Managers\IProjectManager.cs" />
     <Compile Include="Managers\MachineManager.cs" />
     <Compile Include="Managers\ProjectManager.cs" />
     <Compile Include="ObjUtils\ConnectionStringUtil.cs" />

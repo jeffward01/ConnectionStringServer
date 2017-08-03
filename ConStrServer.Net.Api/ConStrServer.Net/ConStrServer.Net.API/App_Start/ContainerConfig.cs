@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using ConStrServer.Business.Managers;
 using ConStrServer.Data.Infrastructure;
 using ConStrServer.Data.Repositories;
 
-namespace ConStrServer.Models.Dbo
+namespace ConStrServer.Net.API
 {
     public class ContainerConfig
     {
@@ -38,17 +39,16 @@ namespace ConStrServer.Models.Dbo
 
             //___Managers____
 
-            builder.RegisterType<GithubManager>().As<IGithubManager>();
-            builder.RegisterType<ProjectImageManager>().As<IProjectImageManager>();
             builder.RegisterType<ProjectManager>().As<IProjectManager>();
-            builder.RegisterType<ProjectTechnologyManager>().As<IProjectTechnologyManager>();
-            builder.RegisterType<EmailManager>().As<IEmailManager>();
+            builder.RegisterType<EnvironmentManager>().As<IEnvironmentManager>();
+            builder.RegisterType<ConnectionStringManger>().As<IConnectionStringManger>();
+            builder.RegisterType<MachineManager>().As<IMachineManager>();
 
 
 
             //___Providers____
-            builder.RegisterType<HttpProvider>().As<IHttpProvider>();
-            builder.RegisterType<GithubProvider>().As<IGithubProvider>();
+           // builder.RegisterType<HttpProvider>().As<IHttpProvider>();
+           // builder.RegisterType<GithubProvider>().As<IGithubProvider>();
 
 
 

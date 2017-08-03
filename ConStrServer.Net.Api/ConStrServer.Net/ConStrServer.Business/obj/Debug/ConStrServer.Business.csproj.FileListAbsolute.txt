@@ -1,0 +1,17 @@
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\obj\Debug\ConStrServer.Business.csprojResolveAssemblyReference.cache
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Business.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Business.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Data.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Models.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\EntityFramework.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Data.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Data.dll.config
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Models.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\ConStrServer.Models.dll.config
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\bin\Debug\EntityFramework.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\obj\Debug\ConStrServer.Business.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Business\obj\Debug\ConStrServer.Business.pdb

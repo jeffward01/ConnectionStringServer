@@ -1,38 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConStrServer.Business.ObjUtils;
+﻿using ConStrServer.Business.ObjUtils;
+using ConStrServer.Data.Repositories;
 using ConStrServer.Models.Dbo;
 using ConStrServer.Models.Dto;
+using System.Collections.Generic;
 
 namespace ConStrServer.Business.Managers
 {
-    public class EnvironmentManager
+    public class EnvironmentManager : IEnvironmentManager
     {
-        public EnvironmentManager()
+        private readonly IEnvironmentInfoRepository _EnvironmentRepository;
+
+        public EnvironmentManager(IEnvironmentInfoRepository EnvironmentRepository)
         {
-            
+            _EnvironmentRepository = EnvironmentRepository;
         }
 
-        public EnvironmentInfo CreateEnvironment(EnvironmentInfoModel environmentInfo)
+        public EnvironmentInfo CreateEnvironment(EnvironmentInfoModel newEnvironment)
         {
-            var environment = EnvironmentUtil.CastToDbo(environmentInfo);
-            var machines = new List<Machine>();
-            if (environment.Machines != null)
-            {
-                machines = environment.Machines;
-            }
+            var Environment = EnvironmentUtil.CastToDbo(newEnvironment);
+            return _EnvironmentRepository.Create(Environment);
+        }
 
+        public EnvironmentInfo EditEnvironment(EnvironmentInfoModel editEnvironment)
+        {
+            var Environment = EnvironmentUtil.CastToDbo(editEnvironment);
+            return _EnvironmentRepository.Edit(Environment);
+        }
 
+        public EnvironmentInfo DeleteEnvironment(int EnvironmentId)
+        {
+            return _EnvironmentRepository.Delete(EnvironmentId);
+        }
 
-            environment.Machines = null;
+        public EnvironmentInfo GetEnvironmentById(int EnvironmentId)
+        {
+            return _EnvironmentRepository.GetByEnvironmentInfoId(EnvironmentId);
+        }
 
-            
-
-
-
+        public List<EnvironmentInfo> GetAllEnvironments()
+        {
+            return _EnvironmentRepository.GetAll();
         }
     }
 }

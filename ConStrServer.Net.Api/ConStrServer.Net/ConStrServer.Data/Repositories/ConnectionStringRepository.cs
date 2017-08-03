@@ -39,11 +39,11 @@ namespace ConStrServer.Data.Repositories
             }
         }
 
-        public List<ConnectionString> GetAllConnectionStringsForProjectId(int projectId)
+        public List<ConnectionString> GetAllConnectionStringsForMachineId(int machineId)
         {
             using (var context = new ConStrContext())
             {
-                return context.ConnectionStrings.Where(_ => _.ProjectId == projectId).ToList();
+                return context.ConnectionStrings.Where(_ => _.MachineId == machineId).ToList();
             }
         }
 
