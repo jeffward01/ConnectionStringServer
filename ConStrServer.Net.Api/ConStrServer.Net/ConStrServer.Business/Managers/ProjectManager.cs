@@ -47,11 +47,13 @@ namespace ConStrServer.Business.Managers
                 {
                     if (env.EnvironmentId != 0)
                     {
+                        env.Machines = null;
                         env.ProjectId = updatedProject.ProjectId;
                         _environmentInfoRepository.Edit(env);
                     }
                     else
                     {
+                        env.ProjectId = updatedProject.ProjectId;
                         _environmentInfoRepository.Create(env);
                     }
 

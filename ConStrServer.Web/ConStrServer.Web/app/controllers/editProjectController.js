@@ -44,7 +44,7 @@
                 }
             }
 
-            $scope.saveProject = function() {
+            $scope.updateProject = function() {
                 assembleProject();
                 projectService.editProject($scope.project).then(function(result) {
                         alertService.success("Project has been updated!");

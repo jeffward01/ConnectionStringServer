@@ -43,7 +43,37 @@ namespace ConStrServer.Business.Managers
         public Machine EditMachine(MachineModel editMachine)
         {
             var Machine = MachineUtil.CastToDbo(editMachine);
-            return _MachineRepository.Edit(Machine);
+
+            var connectionStrings = Machine.ConnectionStrings;
+            Machine.ConnectionStrings = null;
+            var updatedMachine = _MachineRepository.Edit(Machine);
+
+
+            if (connectionStrings != null)
+            {
+                foreach (var conString in connectionStrings)
+                {
+                    if (conString.ConnectionStringId != 0)
+                    {
+                        _connectionStringRepository.Edit(conString);
+                    }
+                    else
+                    {
+                        conString.MachineId = updatedMachine.MachineId;
+                        _connectionStringRepository.Create(conString);
+                    }
+
+                }
+            }
+            //delete all deleted connectionStrings
+            var envsToSave = connectionStrings.Select(_ => _.ConnectionStringId);
+            var allEnvIds = _connectionStringRepository.GetAllConStrIdsForMachine(updatedMachine.MachineId);
+            var idsToDelete = allEnvIds.Except(envsToSave).ToList();
+            foreach (var id in idsToDelete)
+            {
+                _connectionStringRepository.Delete(id);
+            }
+            return _MachineRepository.GetByMachineId(updatedMachine.MachineId);
         }
 
         public Machine DeleteMachine(int MachineId)

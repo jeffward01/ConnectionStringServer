@@ -11,26 +11,6 @@ app.controller('homeController', ['$scope', '$rootScope', '$state', 'githubServi
             $state.go('app.portfolioItem', { portfolioItemId: projectId });
         }
 
-        githubService.getUserInfo().then(function (result) {
-            $scope.userInfo = result.data;
-        },
-            function (err) {
-                console.log(JSON.stringify(err));
-            });
-
-        githubService.getUserStarredRepos().then(function (result) {
-            $scope.userStarredRepos = result.data;
-        },
-            function (err) {
-                console.log(JSON.stringify(err));
-            });
-
-        githubService.getUserRepos().then(function (result) {
-            $scope.userRepos = result.data;
-        },
-            function (err) {
-                console.log(JSON.stringify(err));
-            });
         $scope.viewProject = function (projectId) {
             $state.go('app.viewProject', { projectId: projectId });
         }

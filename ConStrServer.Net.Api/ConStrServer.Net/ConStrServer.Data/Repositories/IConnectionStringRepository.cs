@@ -6,6 +6,7 @@ namespace ConStrServer.Data.Repositories
     public interface IConnectionStringRepository
     {
         ConnectionString Create(ConnectionString connectionString);
+        List<int> GetAllConStrIdsForMachine(int machineId);
         ConnectionString Edit(ConnectionString connectionString);
         ConnectionString Delete(int connectionStringId);
         List<ConnectionString> GetAllConnectionStringsForMachineId(int machineId);

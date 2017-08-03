@@ -9,7 +9,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <button type="button" style="margin-top: 15px" ng-click="editProject(project.ProjectId)" class="btn btn-lg btn-primary pull-right">Edit Project</button>
+                <button type="button" style="margin-top: 15px" ng-click="editProject(project.ProjectId)" class="btn btn-lg btn-primary pull-right">Edit Project / Environments</button>
                 <h1 class="page-header">
                     {{project.ProjectName}}
                     <small>Owned By:&nbsp;{{project.ProjectOwner}}</small>
@@ -52,7 +52,7 @@
                                     </table>
                                 </div>
                             </div>-->
-                            <div class="col-md-12 col-sm-12 col-lg-12 well well-sm">
+                            <div class="col-md-12 col-sm-12 col-lg-12 well well-sm" style="min-height: 150px">
                                 <div class="form-group row port-center">
                                     <label for="projectTech">Machines</label>
                                     <br />
@@ -72,59 +72,59 @@
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody ng-repeat="machine in env.Machines track by $index" ng-show="env.Machines.length>0">
-                                        <tr >
-                                            <!--<td>{{image.ImageUrl}}</td>-->
+                                        <tbody ng-repeat="machine in env.Machines track by $index">
+                                        <tr  ng-show="env.Machines.length>0">
                                             <td>{{machine.MachineNickName}}</td>
                                             <td>{{machine.MachineIpAddress}}</td>
                                             <td><button ng-click="openConStrs(machine)">{{machine.ConnectionStrings.length}}&nbsp;&nbsp;<i ng-class="machine.collapsed?'fa fa-caret-up':'fa fa-caret-down'"></i></button></td>
                                             <td style="text-align: center; ">
 
                                                 <div style="list-style: none; display: inline-flex">
-                                                    <div style="margin-right: 5px;margin-left: 5px;"><span class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bs-machine-view-modal-lg"><i style="font-size: 14px" class="fa fa-pencil"></i></span></div>
-                                                    <div style="margin-left: 5px; "><span class="btn btn-sm btn-danger" data-toggle="modal" data-target=".bs-machine-edit-modal-lg"><i style="font-size: 14px" class="fa fa-trash"></i></span></div>
+                                                    <div style="margin-right: 5px;margin-left: 5px;"><span class="btn btn-sm btn-warning" ng-click="editMachine(env.EnvironmentId,machine.MachineId)" data-toggle="modal" data-target=".bs-machine-edit-modal-lg"><i style="font-size: 14px" class="fa fa-pencil"></i></span></div>
+                                                    <div style="margin-left: 5px; "><span class="btn btn-sm btn-danger" ng-click="deleteMachine(machine.MachineId)"><i style="font-size: 14px" class="fa fa-trash"></i></span></div>
 
                                                     <!--<li style="margin-left: 5px;"><span class="btn btn-sm btn-success"><i style="font-size: 14px" ng-click="deleteProject(project.ProjectId)" class="fa fa-trash"></i></span></li>-->
                                                 </div>
                                             </td>
                                               
                                         </tr>
+
                                         <tr>
                                             <td colspan="4" ng-show="machine.collapsed" id="connectionStringArea">
                                                 <table class="table table-responsive">
                                                     <thead>
-                                                        <tr style="background-color: #2C3E50">
-                                                            <th class="col-md-4 col-lg-4 col-sm-4 " style="text-align: center; color: white">ConStr Name</th>
-                                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">ConStr Url</th>
-                                                        </tr>
+                                                    <tr style="background-color: #2C3E50">
+                                                        <th class="col-md-4 col-lg-4 col-sm-4 " style="text-align: center; color: white">ConStr Name</th>
+                                                        <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">ConStr Url</th>
+                                                    </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr ng-repeat="conStr in machine.ConnectionStrings track by $index">
-                                                            <td>{{conStr.ConnectionStringName}}</td>
+                                                    <tr ng-repeat="conStr in machine.ConnectionStrings track by $index">
+                                                        <td>{{conStr.ConnectionStringName}}</td>
 
-                                                            <td>{{conStr.ConnectionStringUrl}}</td>
-                                                        </tr>
+                                                        <td>{{conStr.ConnectionStringUrl}}</td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </td>
                                         </tr>
-                                        <tr ng-show="env.Machines.length === 0"><td colspan="3" class="port-center">No Machines have been added</td></tr>
+                                      
                                         </tbody>
+                                        <tr ng-show="env.Machines.length === 0"><td colspan="4" class="port-center">No Machines have been added</td></tr>
+
                                     </table>
                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <pre>{{env | json}}</pre>
+                 
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<button type="button" class="btn btn-primary" data-backdrop="static" data-keyboard="false">View modal</button>
-<button type="button" class="btn btn-primary" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target=".bs-machine-edit-modal-lg">Edit modal</button>
 
 <!-- Machine View Modal -->
 <div class="modal fade   bs-machine-view-modal-lg" tabindex="-1" role="dialog" aria-labelledby="viewMachineInfo">
@@ -152,15 +152,71 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close"  ng-click="exitEditMachine()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Machine</h4>
             </div>
             <div class="modal-body">
-                ...
+                <table class="table table-striped">
+                    <thead>
+                        <tr style="background-color:  #2C3E50">
+                            <th style="text-align: center; color:white">Machine Name</th>
+                            <th style="text-align: center; color:white">Machine Nickname</th>
+                            <th style="text-align: center; color:white">Machine IP Address</th>
+                            <th style="text-align: center; color:white">Machine Port</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input style="margin-top: 15px" type="text" ng-model="machineToEdit.MachineName" class="form-control" id="addProjectImageUrl" placeholder="USA002PROJECTNAME001"></td>
+                            <td><input style="margin-top: 15px" type="text" ng-model="machineToEdit.MachineNickName" class="form-control" id="addProjectImageUrl" placeholder="DEV App Server 01"></td>
+                            <td><input style="margin-top: 15px" type="text" ng-model="machineToEdit.MachineIpAddress" class="form-control" id="addProjectImageUrl" placeholder="555.555.55.555"></td>
+                            <td><input style="margin-top: 15px" type="text" ng-model="machineToEdit.MachinePort" class="form-control" id="addProjectImageUrl" placeholder="8080"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <label for="projectTech">Connection Strings</label>
+                <table class="table table-striped">
+                    <thead>
+                        <tr style="background-color:  #2C3E50">
+                            <th style="text-align: center; color:white">Connection String Name</th>
+                            <th style="text-align: center; color:white">Connection String Url</th>
+                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input style="margin-top: 15px" type="text" ng-model="newConnectionStringToAdd.ConnectionStringName" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                            <td><input style="margin-top: 15px" type="text" ng-model="newConnectionStringToAdd.ConnectionStringUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                            <td><span style="margin-top: 15px" ng-click="addConnectionStringToEdit()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label for="projectTech">Added Connection Strings</label>
+
+                <table class="table table-striped port-center">
+                    <thead>
+                    <tr style="background-color:  slategray">
+                        <th style="text-align: center; color:white">Connection String Name</th>
+                        <th style="text-align: center; color:white">Connection String Url</th>
+                        <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="conStr in machineConnectionStringsToEdit track by $index">
+
+                        <td><input type="text" ng-model="conStr.ConnectionStringName" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                        <td><input type="text" ng-model="conStr.ConnectionStringUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                        <td><span ng-click="removeEditConnectionString(conStr)" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></span></td>
+                    </tr>
+                    <tr ng-show="machineConnectionStringsToEdit.length === 0"><td colspan="3" class="port-center">No Connection Strings have been added</td></tr>
+                    </tbody>
+                </table>
+         
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button"  ng-click="exitEditMachine()" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" ng-click="saveEditMachine()" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -200,13 +256,14 @@
                         <tr style="background-color:  #2C3E50">
                             <th style="text-align: center; color:white">Connection String Name</th>
                             <th style="text-align: center; color:white">Connection String Url</th>
-                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"><span ng-click="addConnectionString()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></span></th>
+                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><input style="margin-top: 15px" type="text" ng-model="newConnectionStringToAdd.ConnectionStringName" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
                             <td><input style="margin-top: 15px" type="text" ng-model="newConnectionStringToAdd.ConnectionStringUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                            <td><span style="margin-top: 15px" ng-click="addConnectionString()" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -214,22 +271,23 @@
 
                 <table class="table table-striped port-center">
                     <thead>
-                        <tr style="background-color:  slategray">
-                            <th style="text-align: center; color:white">Connection String Name</th>
-                            <th style="text-align: center; color:white">Connection String Url</th>
-                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"></th>
-                        </tr>
+                    <tr style="background-color:  slategray">
+                        <th style="text-align: center; color:white">Connection String Name</th>
+                        <th style="text-align: center; color:white">Connection String Url</th>
+                        <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white"></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="conStr in connectionStringsToAdd track by $index">
+                    <tr ng-repeat="conStr in connectionStringsToAdd track by $index">
 
-                            <td><input type="text" ng-model="conStr.ConnectionStringName" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
-                            <td><input type="text" ng-model="conStr.ConnectionStringUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
-                            <td><span ng-click="removeConnectionString(conStr)" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></span></td>
-                        </tr>
-                        <tr ng-show="connectionStringsToAdd.length === 0"><td colspan="3" class="port-center">No Connection Strings have been added</td></tr>
+                        <td><input type="text" ng-model="conStr.ConnectionStringName" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                        <td><input type="text" ng-model="conStr.ConnectionStringUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                        <td><span ng-click="removeConnectionString(conStr)" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></span></td>
+                    </tr>
+                    <tr ng-show="connectionStringsToAdd.length === 0"><td colspan="3" class="port-center">No Connection Strings have been added</td></tr>
                     </tbody>
                 </table>
+                <pre>{{newMachineToAdd | json}}</pre>
             </div>
             <div class="modal-footer">
                 <button type="button" ng-click="exitAddMachine()" class="btn btn-default" data-dismiss="modal">Close</button>

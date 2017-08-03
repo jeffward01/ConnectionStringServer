@@ -38,6 +38,13 @@ namespace ConStrServer.Data.Repositories
                 return connectionString;
             }
         }
+        public List<int> GetAllConStrIdsForMachine(int machineId)
+        {
+            using (var context = new ConStrContext())
+            {
+                return context.ConnectionStrings.Where(_ => _.MachineId == machineId).Select(_ => _.ConnectionStringId).ToList();
+            }
+        }
 
         public List<ConnectionString> GetAllConnectionStringsForMachineId(int machineId)
         {

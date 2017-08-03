@@ -11,18 +11,18 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-
-             
-            </ul>
+      
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-      
+            
+                <li class="page-scroll" id="aboutTab" ng-click="gotoAbout()">
+                    <a data-target="#aboutMe">About</a>
+                </li>
+                <li class="page-scroll" id="featuredProjectTab" ng-click="goToFeaturedProjects()">
+                    <a data-target="#featuredProjects">How-To</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

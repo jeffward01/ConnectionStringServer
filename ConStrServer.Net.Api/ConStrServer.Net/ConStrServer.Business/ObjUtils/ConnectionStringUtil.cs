@@ -12,8 +12,14 @@ namespace ConStrServer.Business.ObjUtils
     {
         public static ConnectionString CastToDbo(ConnectionStringModel connectionStringModel)
         {
+            var machineId = 0;
+            if (connectionStringModel.MachineId.HasValue)
+            {
+                machineId = connectionStringModel.MachineId.Value;
+            }
             return new ConnectionString
             {
+                MachineId = machineId,
                 ConnectionStringId = connectionStringModel.ConnectionStringId,
                 ConnectionStringName = connectionStringModel.ConnectionStringName,
                 ConnectionStringUrl = connectionStringModel.ConnectionStringUrl
