@@ -12,6 +12,9 @@ namespace ConStrServer.Models.Dto
 
         [DataMember(Name = "EnvironmentName")]
         public int EnvironmentName { get; set; }
+        [DataMember(Name = "ProjectId")]
+
+        public int ProjectId { get; set; }
 
         [DataMember(Name = "LoadBalenced")]
         public bool LoadBalenced { get; set; }

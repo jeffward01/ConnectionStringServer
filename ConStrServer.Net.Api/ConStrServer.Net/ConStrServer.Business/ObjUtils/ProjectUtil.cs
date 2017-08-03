@@ -12,21 +12,21 @@ namespace ConStrServer.Business.ObjUtils
     {
         public static Project CastToDbo(ProjectModel projectModel)
         {
-            List<ConnectionString> connectionStrings = new List<ConnectionString>();
-            if (projectModel.ConnectionStrings != null)
+            List<EnvironmentInfo> environtments = new List<EnvironmentInfo>();
+
+            if (projectModel.Environments != null)
             {
-                foreach (var conStr in projectModel.ConnectionStrings)
+                foreach (var conStr in projectModel.Environments)
                 {
-                    connectionStrings.Add(ConnectionStringUtil.CastToDbo(conStr));
+                    environtments.Add(EnvironmentUtil.CastToDbo(conStr));
                 }
             }
             return new Project
             {
-                MachineId = projectModel.MachineId,
                 ProjectId = projectModel.ProjectId,
                 ProjectName = projectModel.ProjectName,
                 ProjectOwner = projectModel.ProjectOwner,
-                ConnectionStrings = connectionStrings
+                Environments = environtments
             };
         }
     }

@@ -16,8 +16,8 @@ namespace ConStrServer.Models.Dto
         [DataMember(Name = "ProjectOwner")]
         public string ProjectOwner { get; set; }
 
-        [DataMember(Name = "MachineId")]
-        public int MachineId { get; set; }
+        [DataMember(Name = "Environments")]
+        public virtual List<EnvironmentInfoModel> Environments { get; set; }
 
     }
 }

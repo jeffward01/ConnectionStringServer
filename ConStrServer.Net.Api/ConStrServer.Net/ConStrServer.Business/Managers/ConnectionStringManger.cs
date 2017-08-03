@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConStrServer.Business.Managers
 {
-    class ConnectionStringManger
+    public class ConnectionStringManger
     {
+        
     }
 }

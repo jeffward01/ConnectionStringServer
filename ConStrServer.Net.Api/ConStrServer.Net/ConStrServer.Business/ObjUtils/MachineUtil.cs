@@ -8,12 +8,12 @@ namespace ConStrServer.Business.ObjUtils
     {
         public static Machine CastToDbo(MachineModel machineModel)
         {
-            var projects = new List<Project>();
-            if (machineModel.Projects != null)
+            var connectionStrings = new List<ConnectionString>();
+            if (machineModel.ConnectionStrings != null)
             {
-                foreach (var pro in machineModel.Projects)
+                foreach (var conStr in machineModel.ConnectionStrings)
                 {
-                    projects.Add(ProjectUtil.CastToDbo(pro));
+                    connectionStrings.Add(ConnectionStringUtil.CastToDbo(conStr));
                 }
             }
             return new Machine
@@ -24,7 +24,7 @@ namespace ConStrServer.Business.ObjUtils
                 MachineName = machineModel.MachineName,
                 MachineNickName = machineModel.MachineNickName,
                 MachinePort = machineModel.MachinePort,
-                Projects = projects
+                ConnectionStrings = connectionStrings
             };
         }
     }

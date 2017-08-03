@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConStrServer.Data\ConStrServer.Data.csproj">
+      <Project>{5E7BA63F-5DE1-4AE3-9ECF-CA228761E189}</Project>
+      <Name>ConStrServer.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConStrServer.Models\ConStrServer.Models.csproj">
       <Project>{79BB309F-3C75-40EC-983A-6818EF6A7993}</Project>
       <Name>ConStrServer.Models</Name>

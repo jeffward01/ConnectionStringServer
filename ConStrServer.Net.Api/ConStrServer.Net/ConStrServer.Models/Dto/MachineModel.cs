@@ -25,7 +25,7 @@ namespace ConStrServer.Models.Dto
         [DataMember(Name = "MachinePort")]
         public int MachinePort { get; set; }
 
-        [DataMember(Name = "Projects")]
-        public virtual List<ProjectModel> Projects { get; set; }
+        [DataMember(Name = "ConnectionStrings")]
+        public virtual List<ConnectionStringModel> ConnectionStrings { get; set; }
     }
 }

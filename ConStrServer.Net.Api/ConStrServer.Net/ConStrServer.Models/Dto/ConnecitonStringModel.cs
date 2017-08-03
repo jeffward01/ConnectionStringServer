@@ -8,8 +8,8 @@ namespace ConStrServer.Models.Dto
         [DataMember]
         public int ConnectionStringId { get; set; }
 
-        [DataMember(Name = "ProjectId")]
-        public int? ProjectId { get; set; }
+        [DataMember(Name = "MachineId")]
+        public int? MachineId { get; set; }
 
         [DataMember(Name = "ConnectionStringName")]
         public string ConnectionStringName { get; set; }
