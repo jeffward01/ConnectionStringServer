@@ -1,382 +1,241 @@
-﻿<section class="main-container">
-    <div class="jumbotron center-hard">
-        <h1>Add Project</h1>
-        <div>
-            <div class="col-lg-offset-1 col-lg-2">
-                <button type="button" class="btn btn-info" ng-click="goHome()"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Go Home</button>
-            </div>
+﻿<section>
+    <div class="container">
+        <div class="page-header">
+            <h1>Add Project</h1>
         </div>
-    </div>
-    <pre>{{environments | json}}</pre>
-    <pre>{{options | json}}</pre>
-    <section>
-        <div class="well well-lg center-hard" style="width: 80%">
-            <div class="row">
-                <div class="col-lg-offset-4 col-lg-4">
+        <!--<pre>{{newProject | json}}</pre>-->
+        <!--<pre>{{imagesToAdd.length | json}}</pre>-->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <form>
+                    <!--<div class="checkbox">
+                        <div style="display: inline-flex">
+
+                            <label class="switch">
+                                <input type="checkbox" ng-model="newProject.FeaturedProject">
+                                <span class="slider round"> </span>
+                            </label>
+                            <h4>&nbsp;&nbsp;&nbsp;Featured Project</h4>
+                        </div>
+                    </div>-->
+
                     <div class="form-group">
-
-                        <label for="usr">Project Title:</label>
-                        <input type="text" class="form-control" id="usr" ng-model="project.name">
-                        <label for="usr">Project Owner:</label>
-                        <input type="text" class="form-control" id="usr" ng-model="project.owner">
+                        <label for="exampleInputEmail1">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" ng-model="newProject.ProjectName" placeholder="Awesome project name">
                     </div>
-                </div>
-            </div>
+                    <div class="form-group">
+                        <label for="projectRepo">Project Owner</label>
+                        <input type="text" class="form-control" id="projectRepo" ng-model="newProject.ProjectOwner" placeholder="Finance Team">
+                    </div>
 
-            <div class="row">
-                <div class="col-lg-offset-8 col-lg-2">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEnvironemnt" ng-click="setNewEnvironment()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Environment</button>
-                </div>
-                <div class="col-lg-offset-3 col-lg-6">
-                    <h3 class="pull-left">Environments</h3>
+                    <!--<div class="col-md-6 col-sm-6 col-lg-6">
+                        <div class="col-md-12 col-sm-12 col-lg-12" style="min-height: 175px">
+                            <div class="form-group row port-center">
+                                <label for="projectTech">Add Environment</label>
+                                <br />
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr style="background-color:  #2C3E50">
+                                            <th class="col-md-6 col-lg-6 col-sm-6 " style="text-align: center; color:white">Environment Name</th>
+                                            <th class="col-md-6 col-lg-6 col-sm-6 " style="text-align: center; color:white">Load Balanced</th>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white">Add</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" style="margin-top: 15px" ng-model="newTech.technologyName" class="form-control" id="techName" placeholder="Entity Framework"></td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <div>
 
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Environment Name</th>
-                                <th>Load Balanced</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-show="environments.length>0" ng-repeat="env in environments track by $index">
-                                <td>{{$index + 1}}).</td>
-                                <td>{{env.name}}</td>
-                                <td>{{env.loadBalanced}}</td>
-                                <td style="display: flex">
-                                    <a id="btn-fblogin" ng-click="removeEnvironment(env)" class="btn btn-danger"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                            <tr ng-show="environments.length === 0">
-                                <td colspan="3">No Environments have been added</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-offset-8 col-lg-2">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMachine"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Machine</button>
-                </div>
-                <div class="col-lg-offset-3 col-lg-6">
-                    <h3 class="pull-left">Machines</h3>
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class="center-hard">Machine Name</th>
-                                <th class="center-hard">Environment Name</th>
-                                <th class="center-hard">Machine Ip Address</th>
-                                <th class="center-hard">Connection Strings</th>
-                                <th class="center-hard">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-show="machines.length > 0" ng-repeat="machine in machines track by $index">
-                                <td class="center-hard">{{$index + 1}}.)</td>
-                                <td class="center-hard">{{machine.name}}</td>
-                                <td class="center-hard">{{machine.environment}}</td>
-                                <td class="center-hard">{{machine.ipAddress}}</td>
-                                <td class="center-hard">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center-hard"> Name</th>
-                                                <th class="center-hard">Value</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="con in machine.connectionStrings track by $index">
-                                                <td>{{con.name}}</td>
-                                                <td>{{con.value}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                                <td style="display: flex">
-                                    <a id="btn-fblogin" class="btn btn-danger"><i class="fa fa-times"></i></a>
-                                    <a id="btn-fblogin" data-toggle="modal" data-target="#editMachine" ng-click="editMachineEvent(machine)" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                </td>
-                            </tr>
-                            <tr ng-show="machines.length === 0">
-                                <td colspan="5">No Machines have been added</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-lg-sm">
-                    <div style="border: 2px dotted black"></div>
-                    <div style="margin-top: 5px" class="form-group pull-right">
-                        <!-- Button -->
-                        <div class="controls">
-                            <a id="btn-login" ng-click="addNewNootropicReview()" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;Save Project</a>
-                            <a id="btn-fblogin" ng-click="goBackToNootropic()" class="btn btn-danger"><i class="fa fa-times"></i>&nbsp;Cancel</a>
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="newImage.FeaturedImage">
+                                                            <span class="slider round"> </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="port-center"><i ng-click="addTech(newTech)" style="margin-top: 15px" class="fa fa-plus btn btn-sm btn-success"></i></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="form-group row port-center">
+                                <label for="projectTech">Environments</label>
+                                <br />
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr style="background-color:  #2C3E50">
+                                            <th class="col-md-6 col-lg-6 col-sm-6 " style="text-align: center; color:white">Environment Name</th>
+
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="tech in technologiesToAdd track by $index" ng-show="technologiesToAdd.length>0">
+                                            <td class="port-center">{{tech.technologyName}}</td>
+                                         
+
+                                            <td class="port-center"><i ng-click="removeTech(tech)" class="btn btn-sm btn-danger fa fa-minus "></i></td>
+                                        </tr>
+                                        <tr ng-show="technologiesToAdd.length === 0">
+                                            <td colspan="2" class="port-center">No Environtments have been added</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <div class="col-md-12 col-sm-12 col-lg-12" style="min-height: 175px">
+                            <div class="form-group row port-center">
+                                <label for="addProjectImageUrl">Machines</label>
+                                <br />
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr style="background-color:  #2C3E50">
+                                            <th  style="text-align: center; color:white">Machine Name</th>
+                                            <th  style="text-align: center; color:white">Environment</th>
+                                            <th style="text-align: center; color:white">Machine Nickname</th>
+                                            <th style="text-align: center; color:white">Machine IP Address</th>
+                                            <th style="text-align: center; color:white">Machine Port</th>
+                                            <th style="text-align: center; color:white">Machine Nickname</th>
+                                            <th style="text-align: center; color:white">Add</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+
+
+                                            <td class="port-center"><i ng-click="addImage(newImage)" class="fa fa-plus btn btn-sm btn-success" ng-disabled="imagesToAdd.length === 5" style="margin-top: 15px"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="form-group row port-center">
+                                <label for="projectTech">Machines</label>
+                                <br />
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr style="background-color:  #2C3E50">
+                                            <th style="text-align: center; color:white">Machine Name</th>
+                                            <th style="text-align: center; color:white">Environment</th>
+                                            <th style="text-align: center; color:white">Machine Nickname</th>
+                                            <th style="text-align: center; color:white">Machine IP Address</th>
+                                            <th style="text-align: center; color:white">Machine Port</th>
+                                            <th style="text-align: center; color:white">Machine Nickname</th>>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color:white">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="image in imagesToAdd track by $index" ng-show="imagesToAdd.length>0">
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td>{{image.ImageUrl}}</td>
+
+                                            <td class="port-center"><i ng-click="removeImage(image)" class="fa fa-minus btn btn-sm btn-danger"></i></td>
+                                        </tr>
+                                        <tr ng-show="imagesToAdd.length === 0"><td colspan="3" class="port-center">No Images have been added</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="page-header" style="margin-top: 25px">
+                            <h1>Connection Strings</h1>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-12" style="min-height: 175px">
+                            <div class="form-group row port-center">
+                                <label for="addProjectImageUrl">Add Connection Strings</label>
+                                <br />
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr style="background-color: #2C3E50">
+                                            <th class="col-md-4 col-lg-4 col-sm-4 " style="text-align: center; color: white">Image Url</th>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">Featured</th>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">Add</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input style="margin-top: 15px" type="text" ng-model="newImage.ImageUrl" class="form-control" id="addProjectImageUrl" placeholder="http://www.github.com"></td>
+                                            <td class="port-center">
+                                                <div class="checkbox">
+                                                    <div>
+
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="newImage.FeaturedImage">
+                                                            <span class="slider round"> </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="port-center"><i ng-click="addImage(newImage)" class="fa fa-plus btn btn-sm btn-success" ng-disabled="imagesToAdd.length === 5" style="margin-top: 15px"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="form-group row port-center">
+                                <label for="projectTech">Connection Strings</label>
+                                <br />
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr style="background-color: #2C3E50">
+                                            <th class="col-md-4 col-lg-4 col-sm-4 " style="text-align: center; color: white">Image Url</th>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">Featured</th>
+                                            <th class="col-md-4 col-lg-4 col-sm-4" style="text-align: center; color: white">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="image in imagesToAdd track by $index" ng-show="imagesToAdd.length>0">
+                                            <td>{{image.ImageUrl}}</td>
+                                            <td class="port-center">
+                                                <div class="checkbox">
+                                                    <div>
+
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="image.FeaturedImage">
+                                                            <span class="slider round"> </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="port-center"><i ng-click="removeImage(image)" class="fa fa-minus btn btn-sm btn-danger"></i></td>
+                                        </tr>
+                                        <tr ng-show="imagesToAdd.length === 0"><td colspan="3" class="port-center">No Images have been added</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="port-center">
+                                <button type="button" ng-click="submitProject()" class="btn btn-lg btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
 </section>
-
-<!-- Add Environemnt -->
-<div class="modal fade" id="addEnvironemnt" tabindex="-1" role="dialog" aria-labelledby="addEnvironemnt">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Environment</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class=" col-lg-3"></div>
-                    <div class=" col-lg-3">
-                        <div class="form-group">
-
-                            <label for="usr">Environment Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newEnvironment.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Load Balanced:</label>
-                            <label><input type="checkbox" ng-model="newEnvironment.loadBalanced"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="addNewEnvironment()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Edit Environemnt -->
-<div class="modal fade" id="editEnvironemnt" tabindex="-1" role="dialog" aria-labelledby="editEnvironemnt">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit Environment</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class=" col-lg-3"></div>
-                    <div class=" col-lg-3">
-                        <div class="form-group">
-
-                            <label for="usr">Environment Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="editEnvironment.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Load Balenced:</label>
-                            <input type="checkbox" ng-model="editEnvironment.loadBalanced">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Add Machine -->
-<div class="modal fade" id="addMachine" tabindex="-1" role="dialog" aria-labelledby="addMachine">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Machine</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class=" col-lg-3"></div>
-                    <div class=" col-lg-3">
-                        <div class="form-group">
-
-                            <label for="usr">Machine Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newMachine.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Ip Address:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newMachine.ipAddress">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Environment:</label>
-                            <div isteven-multi-select
-                                 input-model="options"
-                                 output-model="newMachine.environment"
-                                 button-label="name"
-                                 item-label="name"
-                                 tick-property="selected"
-                                 selection-mode="single">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h4>Connection Strings</h4>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newConnectionString.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Value:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newConnectionString.value">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <button type="button" class="btn btn-primary" ng-click="addNewConnectionString()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-lg-8">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Value</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-show="newConnectionStrings.length>0" ng-repeat="conStr in newConnectionStrings track by $index">
-                                    <td>{{conStr.name}}</td>
-                                    <td>{{conStr.value}}</td>
-                                    <td>
-                                        <a id="btn-fblogin" class="btn btn-danger" ng-click="removeConnectionString(conStr)"><i class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr ng-show="newConnectionStrings.length === 0">
-                                    <td colspan="3">No Connection Strings have been added</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" ng-click="cancelNewMachine()" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="saveNewMachine()"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Edit Machine -->
-<div class="modal fade" id="editMachine" tabindex="-1" role="dialog" aria-labelledby="editMachine">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelEditMachine()"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit Machine</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class=" col-lg-3"></div>
-                    <div class=" col-lg-3">
-                        <div class="form-group">
-
-                            <label for="usr">Machine Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="editMachine.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Ip Address:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="editMachine.ipAddress">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Envornment:</label>
-                            <div isteven-multi-select
-                                 input-model="options"
-                                 output-model="newMachine.environment"
-                                 button-label="name"
-                                 item-label="name"
-                                 tick-property="selected"
-                                 selection-mode="single">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h4>Connection Strings</h4>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Name:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newConnectionString.name">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="usr">Value:</label>
-                            <input type="text" class="form-control" id="usr" ng-model="newConnectionString.value">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <button type="button" class="btn btn-primary" ng-click="addNewConnectionStringEdit()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-lg-8">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Value</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-show="editMachine.connectionStrings.length>0" ng-repeat="conStr in editMachine.connectionStrings track by $index">
-                                    <td>{{conStr.name}}</td>
-                                    <td>{{conStr.value}}</td>
-                                    <td>
-                                        <a id="btn-fblogin" class="btn btn-danger" ng-click="removeConnectionStringEdit(conStr)"><i class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr ng-show="editMachine.connectionStrings.length === 0">
-                                    <td colspan="3">No Connection Strings have been added</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="cancelEditMachine()"><i class="fa fa-times"></i>&nbsp;&nbsp;Cancel</button>
-                <button type="button" class="btn btn-primary"ng-click="saveEditMachine()"><i class="fa fa-save" ></i>&nbsp;&nbsp;Save</button>
-            </div>
-        </div>
-    </div>
-</div>
