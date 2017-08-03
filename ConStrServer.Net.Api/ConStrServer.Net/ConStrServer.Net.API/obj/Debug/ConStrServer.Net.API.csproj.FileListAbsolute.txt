@@ -97,3 +97,16 @@ C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.Mvc.xml
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\obj\Debug\ConStrServer.Net.API.dll
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\obj\Debug\ConStrServer.Net.API.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.Razor.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.Razor.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.Razor.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.Razor.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\Purplelight.Framework.Autofac.Integration.WebApi.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\System.Data.Common.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\EntityFramework.SqlServer.dll
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Net.API\bin\EntityFramework.SqlServer.xml

@@ -1,75 +1,66 @@
 ﻿angular.module("app").controller('editProjectController',
     [
         '$scope', '$state', 'authService', 'stateManager', 'alertService', 'smoothScroll', '$rootScope', '$timeout', 'projectService', '$stateParams', 'objectService',
-        function ($scope, $state, authService, stateManager, alertService, smoothScroll, $rootScope, $timeout, projectService, $stateParams, objectService) {
-            $scope.images = [];
-            $scope.tech = [];
+        function($scope,
+            $state,
+            authService,
+            stateManager,
+            alertService,
+            smoothScroll,
+            $rootScope,
+            $timeout,
+            projectService,
+            $stateParams,
+            objectService) {
+            $scope.newEnvironment = {};
 
-            projectService.getProjectById($stateParams.projectId).then(function (result) {
-                $scope.project = result.data;
-                $scope.tech = $scope.project.ProjectTechnologies;
-                $scope.images = $scope.project.ProjectImages;
-                $scope.project.ProjectTechnologies = null;
-                $scope.project.ProjectImages = null;
-            },
-                function (err) {
+            projectService.getProjectById($stateParams.projectId).then(function(result) {
+                    $scope.project = result.data;
+                    $scope.environmentsToAdd = $scope.project.Environments;
+
+                    $scope.project.Environments = null;
+
+                },
+                function(err) {
                     console.log(JSON.stringify(err));
                 });
 
-            $scope.removeTech = function (tech) {
-                objectService.removeElementFromArray(tech, $scope.tech);
-            }
-            $scope.removeImage = function (image) {
-                objectService.removeElementFromArray(image, $scope.images);
+            $scope.removeEnvironment = function(image) {
+                objectService.removeElementFromArray(image, $scope.environmentsToAdd);
             }
 
-            $scope.addTech = function (tech) {
-                if ($scope.newTech.TechnologyName == null) {
-                    return;
-                } else if ($scope.newTech.TechnologyName.length === 0) {
-                    return;
+
+            $scope.addEnvironment = function(image) {
+                if ($scope.newEnvironment.EnvironmentName != null && $scope.newEnvironment.EnvironmentName.length > 0) {
+
+
+                    $scope.environmentsToAdd.push($scope.newEnvironment);
+
+                    $scope.newEnvironment = {};
                 } else {
-                    $scope.tech.push($scope.newTech);
-                    $scope.newTech = null;
+                    alertService.error("Error adding Environment, please add an Environment name!");
+
+                    return;
                 }
             }
 
-            $scope.addImage = function (image) {
-                if ($scope.newImage.featured) {
-                    angular.forEach($scope.images,
-                        function (image) {
-                            image.Featured = false;
-                        });
-                }
-
-                $scope.images.push($scope.newImage);
-
-                $scope.newImage = {};
-            }
-
-            $scope.saveProject = function () {
+            $scope.saveProject = function() {
                 assembleProject();
-                projectService.editProject($scope.project).then(function (result) {
-                    alertService.success("Project has been updated!");
-                    $state.go('app.viewProject', { projectId: $stateParams.projectId });
-                },
-                    function (err) {
+                projectService.editProject($scope.project).then(function(result) {
+                        alertService.success("Project has been updated!");
+                        $state.go('app.viewProject', { projectId: $stateParams.projectId });
+                    },
+                    function(err) {
                         alertService.error("Error updating project!");
                     });
             }
 
             function assembleProject() {
-                angular.forEach($scope.tech,
-                    function (item) {
+                angular.forEach($scope.environmentsToAdd,
+                    function(item) {
                         item.ProjectId = $stateParams.projectId;
                     });
-                angular.forEach($scope.images,
-                    function (item) {
-                        item.ProjectId = $stateParams.projectId;
-                    });
-
-                $scope.project.projectTechnologies = $scope.tech;
-                $scope.project.projectImages = $scope.images;
+                $scope.project.Environments = $scope.environmentsToAdd;
             }
         }
     ]);

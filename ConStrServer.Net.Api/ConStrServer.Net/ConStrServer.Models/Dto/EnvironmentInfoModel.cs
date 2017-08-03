@@ -11,7 +11,7 @@ namespace ConStrServer.Models.Dto
         public int EnvironmentId { get; set; }
 
         [DataMember(Name = "EnvironmentName")]
-        public int EnvironmentName { get; set; }
+        public string EnvironmentName { get; set; }
         [DataMember(Name = "ProjectId")]
 
         public int ProjectId { get; set; }

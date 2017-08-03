@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using ConStrServer.Business.Managers;
 using ConStrServer.Models.Dto;
 
 namespace ConStrServer.Net.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Environment")]
     public class EnvironmentInfoController : ApiController
     {
         private readonly IEnvironmentManager _EnvironmentManager;
@@ -25,7 +28,7 @@ namespace ConStrServer.Net.API.Controllers
             {
                 return BadRequest();
             }
-
+            EnvironmentModel.LoadBalenced = false;
             return Ok(_EnvironmentManager.CreateEnvironment(EnvironmentModel));
         }
 

@@ -6,7 +6,7 @@ app.controller('homeController', ['$scope', '$rootScope', '$state', 'githubServi
             function ($event) {
                 $scope.portfolioCats = 5;
             });
-        getProjects()
+        getProjects();
         $scope.viewPortItem = function (projectId) {
             $state.go('app.portfolioItem', { portfolioItemId: projectId });
         }

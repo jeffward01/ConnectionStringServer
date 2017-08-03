@@ -41,6 +41,7 @@
 
             function assembleProject() {
                 $scope.project.Environments = $scope.envrironmentsToAdd;
+                $scope.project.ProjectId = 0;
             }
         }
     ]);

@@ -1,11 +1,8 @@
-﻿using System;
+﻿using ConStrServer.Data.Infrastructure;
+using ConStrServer.Models.Dbo;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConStrServer.Data.Infrastructure;
-using ConStrServer.Models.Dbo;
 
 namespace ConStrServer.Data.Repositories
 {
@@ -20,6 +17,7 @@ namespace ConStrServer.Data.Repositories
                 return project;
             }
         }
+
         public Project Edit(Project project)
         {
             using (var context = new ConStrContext())
@@ -29,6 +27,7 @@ namespace ConStrServer.Data.Repositories
                 return project;
             }
         }
+
         public Project Delete(int projectId)
         {
             using (var context = new ConStrContext())
@@ -44,7 +43,9 @@ namespace ConStrServer.Data.Repositories
         {
             using (var context = new ConStrContext())
             {
-                return context.Projects.Include("ConnectionStrings").ToList();
+                return context.Projects.Include("Environments")
+                    .Include("Environments.Machines")
+                      .Include("Environments.Machines.ConnectionStrings").ToList();
             }
         }
 
@@ -52,10 +53,12 @@ namespace ConStrServer.Data.Repositories
         {
             using (var context = new ConStrContext())
             {
-                return context.Projects.Include("ConnectionStrings").FirstOrDefault(_ => _.ProjectId == projectId);
+                return context.Projects
+                    .Include("Environments")
+                    .Include("Environments.Machines")
+                      .Include("Environments.Machines.ConnectionStrings")
+                    .FirstOrDefault(_ => _.ProjectId == projectId);
             }
         }
-
-       
     }
 }

@@ -17,3 +17,6 @@ C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\obj\Debug\ConStrServer.Data.dll
 C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\obj\Debug\ConStrServer.Data.pdb
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\obj\Debug\ConStrServer.Data.Migrations.intial.resources
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\obj\Debug\ConStrServer.Data.csproj.GenerateResource.Cache
+C:\Dev\projects\ConnectionStringApp\ConnectionStringServer\ConStrServer.Net.Api\ConStrServer.Net\ConStrServer.Data\obj\Debug\ConStrServer.Data.Migrations.changeddataType.resources

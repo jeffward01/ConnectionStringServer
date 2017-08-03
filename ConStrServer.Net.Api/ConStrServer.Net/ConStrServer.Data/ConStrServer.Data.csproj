@@ -58,6 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\ConStrContext.cs" />
+    <Compile Include="Migrations\201708030359321_intial.cs" />
+    <Compile Include="Migrations\201708030359321_intial.Designer.cs">
+      <DependentUpon>201708030359321_intial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708031954274_changed dataType.cs" />
+    <Compile Include="Migrations\201708031954274_changed dataType.Designer.cs">
+      <DependentUpon>201708031954274_changed dataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
     <Compile Include="Repositories\ConnectionStringRepository.cs" />
@@ -79,6 +88,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708030359321_intial.resx">
+      <DependentUpon>201708030359321_intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708031954274_changed dataType.resx">
+      <DependentUpon>201708031954274_changed dataType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,6 +51,16 @@ namespace ConStrServer.Data.Repositories
             }
         }
 
+
+        public List<int> GetAllEnvIds(int projectId)
+        {
+            using (var context = new ConStrContext())
+            {
+                return context.Environments.Where(_ => _.ProjectId == projectId).Select(_ => _.EnvironmentId)
+                    .ToList();
+            }
+        }
+
         public EnvironmentInfo GetByEnvironmentInfoId(int EnvironmentInfoId)
         {
             using (var context = new ConStrContext())

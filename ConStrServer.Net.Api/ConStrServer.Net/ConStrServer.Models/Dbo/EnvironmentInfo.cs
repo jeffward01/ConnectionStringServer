@@ -11,7 +11,7 @@ namespace ConStrServer.Models.Dbo
         public int EnvironmentId { get; set; }
         public int ProjectId { get; set; }
 
-        public int EnvironmentName { get; set; }
+        public string EnvironmentName { get; set; }
         public bool LoadBalenced { get; set; }
 
         public virtual List<Machine> Machines { get; set; }

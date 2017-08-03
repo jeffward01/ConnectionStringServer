@@ -44,8 +44,7 @@ namespace ConStrServer.Data.Repositories
         {
             using (var context = new ConStrContext())
             {
-                return context.Machines.Include("Projects")
-                    .Include("Projects.ConnectionStrings").ToList();
+                return context.Machines.Include("ConnectionStrings").ToList();
             }
         }
 
@@ -54,8 +53,7 @@ namespace ConStrServer.Data.Repositories
             using (var context = new ConStrContext())
             {
                 return context.Machines
-                    .Include("Projects")
-                    .Include("Projects.ConnectionStrings")
+                    .Include("ConnectionStrings")
                     .FirstOrDefault(_ => _.MachineId == MachineId);
             }
         }
@@ -64,8 +62,7 @@ namespace ConStrServer.Data.Repositories
         {
             using (var context = new ConStrContext())
             {
-                return context.Machines.Include("Projects")
-                    .Include("Projects.ConnectionStrings").Where(_ => _.MachineId == machineid).ToList();
+                return context.Machines.Include("ConnectionStrings").Where(_ => _.MachineId == machineid).ToList();
             }
         }
     }

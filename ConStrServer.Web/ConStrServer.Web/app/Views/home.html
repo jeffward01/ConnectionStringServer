@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th class="port-center">Project Name</th>
+                                <th class="port-center">Project Owner</th>
                                 <th class="port-center">Environment List</th>
                                
                                 <th class="port-center"></th>
@@ -26,8 +27,10 @@
                         <tbody>
                             <tr ng-show="projects.length>=1" dir-paginate="project in projects |itemsPerPage:10 track by $index">
                                 <td class="port-center">{{project.ProjectName}}</td>
-           
-                                <td class="port-center">{{project.BlockchainProject}}</td>
+                                <td class="port-center">{{project.ProjectOwner}}</td>
+                                <td class="port-center"><div ng-repeat="env in project.Environments track by $index">
+                                    <span>{{env.EnvironmentName}}<span ng-if="!$last">, </span></span>
+                                </div></td>
                                 <td>
                                     <ul style="list-style: none; display: inline-flex">
                                         <li style="margin-right: 5px;"><span class="btn btn-sm btn-primary"><i ng-click="viewProject(project.ProjectId)" style="font-size: 14px" class="fa fa-eye"></i></span></li>
@@ -55,6 +58,7 @@
         </div>
     </section>
 </div>
+
 
 
 

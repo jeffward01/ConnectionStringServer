@@ -13,16 +13,31 @@ namespace ConStrServer.Business.Managers
     public class MachineManager : IMachineManager
     {
         private readonly IMachineRepository _MachineRepository;
+        private readonly IConnectionStringRepository _connectionStringRepository;
 
-        public MachineManager(IMachineRepository MachineRepository)
+        public MachineManager(IMachineRepository MachineRepository, IConnectionStringRepository connectionStringRepository)
         {
+            _connectionStringRepository = connectionStringRepository;
             _MachineRepository = MachineRepository;
         }
 
         public Machine CreateMachine(MachineModel newMachine)
         {
             var Machine = MachineUtil.CastToDbo(newMachine);
-            return _MachineRepository.Create(Machine);
+
+            var connectionStrings = Machine.ConnectionStrings;
+            Machine.ConnectionStrings = null;
+            var savedMachine = _MachineRepository.Create(Machine);
+
+            if (connectionStrings != null)
+            {
+                foreach (var conStr in connectionStrings)
+                {
+                    conStr.MachineId = savedMachine.MachineId;
+                    _connectionStringRepository.Create(conStr);
+                }
+            }
+            return _MachineRepository.GetByMachineId(savedMachine.MachineId);
         }
 
         public Machine EditMachine(MachineModel editMachine)
