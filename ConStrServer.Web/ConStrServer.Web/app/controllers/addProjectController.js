@@ -15,7 +15,7 @@
                         alertService.success("Project has been added!");
                         $state.go("app.viewProject",
                             {
-                                projectId: result.ProjectId
+                                projectId: result.data.ProjectId
                             });
                     },
                         function (err) {

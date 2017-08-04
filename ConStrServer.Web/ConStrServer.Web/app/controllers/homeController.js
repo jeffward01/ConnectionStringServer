@@ -19,6 +19,7 @@ app.controller('homeController', ['$scope', '$rootScope', '$state', 'githubServi
             $state.go('app.editProject', { projectId: projectId });
         }
         $scope.deleteProject = function (projectId) {
+            alert(projectId);
             projectService.deleteProject(projectId).then(function (result) {
                 getProjects();
                 alertService.success("Project Deleted!");

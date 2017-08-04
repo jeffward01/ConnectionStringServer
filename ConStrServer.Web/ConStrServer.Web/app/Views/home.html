@@ -3,7 +3,7 @@
     <section id="skills">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center" >
+                <div class="col-lg-12 text-center">
                     <h2>All Projects</h2>
 
                     <hr class="star-primary">
@@ -20,7 +20,7 @@
                                 <th class="port-center">Project Name</th>
                                 <th class="port-center">Project Owner</th>
                                 <th class="port-center">Environment List</th>
-                               
+
                                 <th class="port-center"></th>
                             </tr>
                         </thead>
@@ -28,14 +28,16 @@
                             <tr ng-show="projects.length>=1" dir-paginate="project in projects |itemsPerPage:10 track by $index">
                                 <td class="port-center">{{project.ProjectName}}</td>
                                 <td class="port-center">{{project.ProjectOwner}}</td>
-                                <td class="port-center"><div ng-repeat="env in project.Environments track by $index">
-                                    <span>{{env.EnvironmentName}}<span ng-if="!$last">, </span></span>
-                                </div></td>
+                                <td class="port-center">
+                                    <div ng-repeat="env in project.Environments track by $index">
+                                        <span>{{env.EnvironmentName}}<span ng-if="!$last">, </span></span>
+                                    </div>
+                                </td>
                                 <td>
                                     <ul style="list-style: none; display: inline-flex">
-                                        <li style="margin-right: 5px;"><span class="btn btn-sm btn-success"><i ng-click="viewProject(project.ProjectId)" style="font-size: 14px" class="fa fa-eye"></i></span></li>
-                                        <li style="margin-right: 5px; margin-left: 5px;"><span class="btn btn-sm btn-warning"><i ng-click="editProject(project.ProjectId)" style="font-size: 14px" class="fa fa-pencil"></i></span></li>
-                                        <li style="margin-left: 5px;"><span class="btn btn-sm btn-danger"><i style="font-size: 14px" ng-click="deleteProject(project.ProjectId)" class="fa fa-trash"></i></span></li>
+                                        <li style="margin-right: 5px;"><span class="btn btn-sm btn-success" ng-click="viewProject(project.ProjectId)"><i style="font-size: 14px" class="fa fa-eye"></i></span></li>
+                                        <li style="margin-right: 5px; margin-left: 5px;"><span class="btn btn-sm btn-warning" ng-click="editProject(project.ProjectId)"><i style="font-size: 14px" class="fa fa-pencil"></i></span></li>
+                                        <li style="margin-left: 5px;"><span class="btn btn-sm btn-danger" ng-click="deleteProject(project.ProjectId)"><i style="font-size: 14px" class="fa fa-trash"></i></span></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -54,11 +56,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </div>
-
-
-
-
