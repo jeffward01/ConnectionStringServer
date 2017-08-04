@@ -51,7 +51,25 @@
                         displayName: 'View Project',
                         projectId: null
                     }
-                });
+            })
+            .state('app.about',
+            {
+                url: '/about',
+                templateUrl: 'app/views/about.html',
+                controller: 'aboutController',
+                data: {
+                    displayName: 'About Project',
+                }
+            })
+            .state('app.howTo',
+            {
+                url: '/how-to',
+                templateUrl: 'app/views/howTo.html',
+                controller: 'howToController',
+                data: {
+                    displayName: 'How To',
+                }
+            });
 
         // if none of the above states are matched, use this as the fallback
         //  $urlRouterProvider.otherwise('/app/landingPage');

@@ -6,6 +6,10 @@
 
             checkAuthentication();
 
+
+            $scope.aboutActive = false;
+            $scope.howToActive = false;
+
             $scope.scrollToSkills = function () {
                 // Using defaults
                 var element = document.getElementById('skills');
@@ -16,6 +20,10 @@
                 }
                 smoothScroll(element, options);
             }
+
+
+
+
 
             $scope.goToHome = function () {
                 $state.go('app.home', {});
@@ -28,15 +36,13 @@
                 $rootScope.$broadcast('openCodeSnippet');
             }
 
-            $scope.goToSkills = function () {
-                $state.go('app.home', {});
-                scroll('skills');
+            $scope.goToHowTo = function () {
+                $state.go('app.howTo', {});
             };
 
-            $scope.gotoAbout = function () {
-                $state.go('app.home', {});
-                scroll('about');
-            };
+            $scope.goToAbout = function () {
+                $state.go('app.about', {});
+         };
 
             $scope.goToFeaturedProjects = function () {
                 $state.go('app.home', {});

@@ -10,6 +10,7 @@ namespace ConStrServer.Business.Managers
         Project EditProject(ProjectModel editProject);
         Project DeleteProject(int projectId);
         Project GetProjectById(int projectId);
+        string GetConnectionString(MainRequestObject mainRequestObject);
         List<Project> GetAllProjects();
     }
 }

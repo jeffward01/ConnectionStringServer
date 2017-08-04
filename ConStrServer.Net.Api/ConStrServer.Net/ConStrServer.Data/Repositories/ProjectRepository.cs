@@ -18,6 +18,18 @@ namespace ConStrServer.Data.Repositories
             }
         }
 
+        public Project GetProjectByName(MainRequestObject mainRequestObject)
+        {
+            using (var context = new ConStrContext())
+            {
+               return context.Projects
+                    .Include("Environments")
+                    .Include("Environments.Machines")
+                    .Include("Environments.Machines.ConnectionStrings")
+                    .FirstOrDefault(_ => _.ProjectName == mainRequestObject.ProjectName);
+            }
+        }
+
         public Project Edit(Project project)
         {
             using (var context = new ConStrContext())

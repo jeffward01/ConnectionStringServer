@@ -8,6 +8,7 @@ namespace ConStrServer.Data.Repositories
         Project Create(Project project);
         Project Edit(Project project);
         Project Delete(int projectId);
+        Project GetProjectByName(MainRequestObject mainRequestObject);
         List<Project> GetAll();
         Project GetByProjectId(int projectId);
     }
